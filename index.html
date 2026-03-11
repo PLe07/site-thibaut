@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transac Express — Expert Immobilier Pauillac</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo-wrap" onclick="navigate('home')">
+                <img src="logo.jpg" alt="Transac Express Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item active" data-target="home" onclick="navigate('home')">Accueil</a></li>
+                <li><a href="#" class="nav-item" data-target="pauillac" onclick="navigate('pauillac')">Investir à Pauillac</a></li>
+                <li><a href="#" class="nav-item" data-target="catalogue" onclick="navigate('catalogue')">Biens à vendre</a></li>
+                <li><a href="#" class="nav-item" data-target="simulateur" onclick="navigate('simulateur')">Simulateur fiscal</a></li>
+                <li><button class="btn-red-nav" onclick="navigate('simulateur')">Simuler</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="page-home" class="page active">
+            <div class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="hero-badge"><span class="dot"></span> Marchand de biens — Pauillac, Médoc</div>
+                    <h1 class="hero-title">L'expertise du marchand de biens au service de votre <span class="text-red">défiscalisation</span></h1>
+                    <p class="hero-subtitle">Investissez dans la pierre médocaine et bénéficiez du dispositif Denormandie pour réduire vos impôts jusqu'à 63 000 €.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="navigate('simulateur')">Simuler ma défiscalisation →</button>
+                        <button class="btn-secondary" onclick="navigate('catalogue')">Voir nos biens</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container section-padding text-center">
+                <p class="section-surtitle text-red">POURQUOI NOUS CHOISIR</p>
+                <h2 class="section-title">Votre investissement, notre expertise</h2>
+                <p class="section-desc mx-auto">Transac Express vous accompagne dans chaque étape de votre projet de défiscalisation immobilière à Pauillac.</p>
+                
+                <div class="grid-3 mt-50">
+                    <div class="feature-card">
+                        <div class="icon-box-pro">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3v4H5V6zM4 10v11m16-11v11M8 10v11m8-11v11m-4-11v11"/></svg>
+                        </div>
+                        <h3>Dispositif Denormandie</h3>
+                        <p>Bénéficiez d'une réduction d'impôt allant jusqu'à 21% du montant de votre investissement en rénovant un bien ancien.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box-pro">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4H2v16h20V4z"/><path d="M2 4l10 8 10-8"/><path d="M9 14l2 2 4-4"/></svg>
+                        </div>
+                        <h3>Accompagnement complet</h3>
+                        <p>De la sélection du bien à la mise en location, nous gérons l'intégralité de votre projet d'investissement.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box-pro">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <h3>Travaux maîtrisés</h3>
+                        <p>Nos artisans locaux rénovent avec excellence pour atteindre les objectifs énergétiques requis par le dispositif.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-pauillac" class="page">
+            <div class="hero-pauillac">
+                <div class="hero-overlay-dark"></div>
+                <div class="hero-content text-center">
+                    <div class="badge-outline">📍 Gironde (33) — Médoc</div>
+                    <h1 class="hero-title-large">Investir à <span class="text-red">Pauillac</span></h1>
+                </div>
+            </div>
+            
+            <div class="container section-padding">
+                <div class="grid-2 align-start gap-50">
+                    <div class="text-article">
+                        <h2>Pauillac, joyau du Médoc et terre d'opportunités</h2>
+                        <p>Située à seulement <strong>50 km au nord de Bordeaux</strong>, Pauillac est mondialement connue pour ses grands crus classés. La commune bénéficie du <strong>dispositif Denormandie</strong>, permettant aux acquéreurs de biens anciens à rénover de profiter d'une réduction d'impôt significative.</p>
+                    </div>
+                    <div class="gray-box">
+                        <h3>Pourquoi investir ici ?</h3>
+                        <ul class="check-list">
+                            <li><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></span> Ville classée en zone éligible Denormandie</li>
+                            <li><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></span> Prix au m² encore accessibles par rapport à Bordeaux</li>
+                            <li><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></span> Demande locative forte et croissante</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="denormandie-section mt-80">
+                    <h2 class="section-title text-center">Le dispositif Denormandie</h2>
+                    <div class="grid-3 mt-50">
+                        <div class="tax-card"><div class="tax-label">Location</div><div class="tax-years">6 ans</div><div class="tax-pct text-red">12%</div><div class="tax-max">jusqu'à 36 000 €</div></div>
+                        <div class="tax-card"><div class="tax-label">Location</div><div class="tax-years">9 ans</div><div class="tax-pct text-red">18%</div><div class="tax-max">jusqu'à 54 000 €</div></div>
+                        <div class="tax-card"><div class="tax-label">Location</div><div class="tax-years">12 ans</div><div class="tax-pct text-red">21%</div><div class="tax-max">jusqu'à 63 000 €</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-catalogue" class="page">
+            <div class="container section-padding">
+                <h2 class="section-title text-center">Biens à vendre</h2>
+                <div class="grid-3 mt-50" id="catalogue-grid"></div>
+            </div>
+        </section>
+
+        <section id="page-simulateur" class="page bg-light">
+            <div class="container section-padding">
+                <p class="section-surtitle text-red">CABINET D'EXPERT</p>
+                <h1 class="page-title">Simulateur d'Ingénierie Patrimoniale</h1>
+                <p class="page-subtitle mb-20 text-gray">Analysez la viabilité fiscale et financière de votre investissement Denormandie.</p>
+                
+                <div class="sim-layout mt-50">
+                    <div class="sim-left">
+                        <div class="pro-card">
+                            <div class="pro-card-header">1. Paramètres de l'opération</div>
+                            <div class="grid-2 gap-15">
+                                <div class="input-group-pro">
+                                    <label>Prix d'achat du bien ancien (€)</label>
+                                    <input type="number" id="sim-prix" value="150000" oninput="updateSim()">
+                                </div>
+                                <div class="input-group-pro">
+                                    <label>Frais de notaire estimé (%)</label>
+                                    <div style="display:flex; align-items:center; gap: 10px;">
+                                        <input type="number" id="sim-notaire-pct" value="8" step="0.1" style="width:80px;" oninput="updateSim()">
+                                        <span id="val-notaire-montant" class="text-gray text-xs" style="font-weight:600;">= 12 000 €</span>
+                                    </div>
+                                </div>
+                                <div class="input-group-pro">
+                                    <label>Budget total travaux TTC (€)</label>
+                                    <input type="number" id="sim-travaux" value="50000" oninput="updateSim()">
+                                </div>
+                                <div class="input-group-pro">
+                                    <label>Surface habitable (m²)</label>
+                                    <input type="number" id="sim-surface" value="60" oninput="updateSim()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pro-card">
+                            <div class="pro-card-header">2. Le Financement Bancaire</div>
+                            <div class="grid-2 gap-15">
+                                <div class="input-group-pro">
+                                    <label>Apport personnel total (€)</label>
+                                    <input type="number" id="sim-apport" value="20000" oninput="updateSim()">
+                                </div>
+                                <div class="input-group-pro">
+                                    <label>Vos revenus nets mensuels (€)</label>
+                                    <input type="number" id="sim-revenus" value="3000" oninput="updateSim()">
+                                </div>
+                                <div class="input-group-pro">
+                                    <label>Taux d'intérêt nominal (%)</label>
+                                    <input type="number" id="sim-taux" value="3.8" step="0.1" oninput="updateSim()">
+                                </div>
+                                <div class="input-group-pro">
+                                    <label>Durée de l'emprunt (mois)</label>
+                                    <input type="number" id="sim-duree-mois" value="240" oninput="updateSim()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pro-card">
+                            <div class="pro-card-header">3. Durée d'engagement locatif</div>
+                            <div class="grid-3 gap-15">
+                                <div class="duree-card" onclick="setDuree(0)"><div class="duree-years">6 ans</div><div class="duree-pct">12%</div></div>
+                                <div class="duree-card active" onclick="setDuree(1)"><div class="duree-years">9 ans</div><div class="duree-pct text-red">18%</div></div>
+                                <div class="duree-card" onclick="setDuree(2)"><div class="duree-years">12 ans</div><div class="duree-pct">21%</div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-red mt-20" id="alert-ratio" style="display:none;">
+                            <strong>⚠️ Projet non éligible Denormandie</strong>
+                            <p>Les travaux doivent représenter au moins 25% du coût total. Actuellement : <strong id="val-ratio-alert">0%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="sim-right">
+                        
+                        <div class="resume-card mb-20">
+                            <h3 class="resume-title text-center">Résumé de votre projet</h3>
+                            <div class="res-row mt-20"><span>Acquisition</span><strong id="res-resume-prix">150 000 €</strong></div>
+                            <div class="res-row"><span>Frais de notaire estimés</span><strong id="res-resume-notaire">12 000 €</strong></div>
+                            <div class="res-row"><span>Montant des travaux</span><strong id="res-resume-travaux">50 000 €</strong></div>
+                            <div class="res-row bold pt-15 mt-10" style="border-top: 1px solid var(--border-gold);">
+                                <span>Économie d'impôt totale</span><strong id="res-resume-reduction" class="text-red" style="font-size: 1.2rem;">38 160 €</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="jess-card mb-20">
+                            <div class="jess-header">
+                                <div class="jess-surtitle">VOTRE RÉDUCTION D'IMPÔT</div>
+                                <div class="jess-amount" id="res-reduction">38 160 €</div>
+                                <div class="jess-sub" id="res-sub">sur 9 ans • soit 4 240 €/an</div>
+                            </div>
+                            <div class="jess-body">
+                                <div class="res-row"><span>Assiette fiscale retenue</span><strong id="res-assiette">212 000 €</strong></div>
+                                <div class="res-row"><span>Ratio travaux</span><strong id="res-ratio" class="text-red">23.6%</strong></div>
+                                <div class="res-row mt-15 pt-15" style="border-top: 1px solid var(--border-fine); align-items: flex-start;">
+                                    <div>
+                                        <span style="display:block; color:var(--primary); font-weight:600;">Loyer max. estimé (Zone B2)</span>
+                                        <span class="text-xs text-gray" id="res-loyer-detail">Base...</span>
+                                    </div>
+                                    <strong class="text-primary" style="font-size:1.1rem;" id="res-loyer">600 €/m</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cta-container mb-30">
+                            <button class="btn-lead" onclick="openModal()">
+                                TÉLÉCHARGER MON PLAN DE FINANCEMENT PERSONNALISÉ
+                            </button>
+                            <p class="promise-text">Inclus : Analyse graphique de vos pôles de dépenses, calendrier de défiscalisation et plan de financement détaillé (PDF).</p>
+                        </div>
+
+                        <div class="pro-card text-center" style="padding: 30px;">
+                            <div class="jess-surtitle" style="color:var(--gray-text);">MENSUALITÉ DE CRÉDIT (hors assurance)</div>
+                            <div class="text-primary mt-10" style="font-size:2.5rem; font-weight:700; font-family:var(--font-title);" id="res-mensualite">904 €</div>
+                            <div class="text-sm text-gray mt-10" id="res-mensualite-detail">+ 48€ d'assurance emprunteur</div>
+                            
+                            <div class="budget-box mt-20 text-left" id="budget-container">
+                                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-weight:600; font-size:0.9rem;" id="budget-header">
+                                    <span>Poids sur mon budget</span>
+                                    <strong id="res-endettement-txt">31.7%</strong>
+                                </div>
+                                <div class="gauge-track"><div class="gauge-fill" id="res-endettement-bar" style="width: 31.7%"></div></div>
+                                <div class="text-xs mt-10 bold" id="res-endettement-status">✅ Capacité d'emprunt respectée</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-mentions" class="page">
+            <div class="container section-padding" style="max-width: 800px;">
+                <h1 class="page-title">Mentions légales</h1>
+                <div class="pro-card mt-20">
+                    <p class="mb-10"><strong>Éditeur du site :</strong> MEDOC INVESTISSEMENT</p>
+                    <p class="mb-10"><strong>Forme sociale :</strong> SARL au capital de 1 440 000 €</p>
+                    <p class="mb-10"><strong>Siège social :</strong> 4 rue Albert 1er, 33250 PAUILLAC</p>
+                    <p class="mb-10"><strong>Contact :</strong> contact@transac-express.fr</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrap mb-20">
+                        <img src="logo.jpg" alt="Transac Express Logo" class="logo-img footer-logo-img">
+                    </div>
+                    <p class="text-gray text-sm">L'expertise du marchand de biens au service de votre patrimoine immobilier dans le Médoc.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">NAVIGATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="navigate('home')">Accueil</a></li>
+                        <li><a href="#" onclick="navigate('pauillac')">Investir à Pauillac</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">CONTACT</h4>
+                    <ul class="footer-contact"><li>📍 Pauillac, Gironde (33)</li><li>📞 05 56 XX XX XX</li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 MEDOC INVESTISSEMENT — SARL au capital de 1 440 000 €</p>
+                <a href="#" onclick="navigate('mentions')">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lead-modal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal(event)">&times;</span>
+            <h2 class="modal-title">Votre étude patrimoniale est prête.</h2>
+            
+            <p class="modal-text" id="modal-intro">Recevez votre dossier complet par email. Ce document inclut votre analyse graphique détaillée, votre calendrier de défiscalisation Denormandie ainsi qu'une simulation de financement optimisée.</p>
+            
+            <form class="modal-form" id="lead-form" onsubmit="submitForm(event)">
+                <div class="input-group-pro mb-10">
+                    <input type="text" id="lead-name" placeholder="Prénom & Nom" required>
+                </div>
+                <div class="input-group-pro mb-10">
+                    <input type="email" id="lead-email" placeholder="Email, professionnel de préférence" required>
+                </div>
+                <div class="input-group-pro mb-20">
+                    <input type="tel" id="lead-phone" placeholder="Téléphone - facultatif">
+                </div>
+                <button type="submit" class="modal-btn" id="submit-btn">
+                    <span id="btn-text">ENVOYER MON PLAN DÉTAILLÉ (PDF)</span>
+                    <span class="loader" id="btn-loader" style="display:none;"></span>
+                </button>
+            </form>
+
+            <div id="success-message" style="display: none; text-align: center; padding: 20px 0;">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <h3 style="color: var(--primary); font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 15px;">Merci <span id="success-name"></span> !</h3>
+                <p style="color: var(--text-body); line-height: 1.6; font-size: 1rem;">Votre étude personnalisée a été générée. Vérifiez vos emails d'ici quelques instants.</p>
+            </div>
+            
+            <p class="modal-note" id="modal-note">🔒 Vos données sont protégées. Aucun spam, uniquement votre étude personnalisée.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
