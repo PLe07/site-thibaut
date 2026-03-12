@@ -73,7 +73,7 @@ ul { list-style: none; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* HERO */
-.hero-section { position: relative; height: 85vh; display: flex; align-items: center; padding: 0 5%; background: url('https://www.google.com/imgres?q=façade%20maison%20haussmann%20rénover&imgurl=https%3A%2F%2Fs3.fr-par.scw.cloud%2Fwp-haussmann-design%2F2023%2F03%2Fbanner-join.jpg&imgrefurl=https%3A%2F%2Fhaussmann-design.com%2F&docid=31zC5EWGnQDEPM&tbnid=YScyCw8Rb7EyjM&vet=12ahUKEwiQ8KHQh5qTAxV_bKQEHTKOAjw4ChCc8A56BAg7EAE..i&w=1920&h=1280&hcb=2&ved=2ahUKEwiQ8KHQh5qTAxV_bKQEHTKOAjw4ChCc8A56BAg7EAE') center/cover; }
+.hero-section { position: relative; height: 85vh; display: flex; align-items: center; padding: 0 5%; background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600') center/cover; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,43,60,0.9) 0%, rgba(26,43,60,0.6) 60%, transparent 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 750px; color: var(--white); }
 .hero-badge { border: 1px solid var(--accent); display: inline-flex; align-items: center; gap: 10px; padding: 8px 20px; font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
