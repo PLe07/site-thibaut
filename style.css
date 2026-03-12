@@ -245,3 +245,92 @@ ul { list-style: none; }
     object-fit: contain; 
     filter: none; 
 }
+
+/* Style des liens cliquables dans le footer */
+.footer-contact li a {
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-contact li a:hover {
+    color: var(--accent);
+    transform: translateX(5px); /* Petit effet de glissement au survol */
+}
+
+/* Spécifique à la modale de sélection GPS */
+#map-modal .modal-box {
+    max-width: 350px; /* Plus étroite pour un choix rapide */
+}
+
+#map-modal .btn-secondary {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-color: var(--primary);
+    color: var(--primary);
+    text-align: center;
+}
+
+#map-modal .btn-secondary:hover {
+    background: var(--primary);
+    color: var(--accent);
+}
+
+/* Bouton annuler discret */
+.btn-cancel {
+    background: none;
+    border: none;
+    color: #666;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.modal-overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(26, 43, 60, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: none; /* Changez 'flex' par 'none' par défaut */
+    justify-content: center; 
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+/* On utilise une classe pour l'afficher proprement */
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .sim-layout {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none; /* À remplacer par un menu burger si besoin plus tard */
+    }
+}
