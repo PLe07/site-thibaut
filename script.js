@@ -232,4 +232,44 @@ async function submitForm(event) {
 window.onload = () => {
     updateSim();
     renderCatalogue();
+}
+
+// Confirmation d'appel
+function confirmCall() {
+    const phoneNumber = "05 57 75 10 10";
+    if (confirm("Souhaitez-vous appeler Transac Express au " + phoneNumber + " ?")) {
+        window.location.href = "tel:+33557751010";
+    }
+}
+
+// Ouverture du choix de carte
+function openMapChoice() {
+    document.getElementById('map-modal').style.display = 'flex';
+}
+
+// ==========================================
+// NAVIGATION ET APPEL (FOOTER)
+// ==========================================
+
+/**
+ * Affiche une boîte de dialogue de confirmation avant de lancer l'appel
+ */
+function confirmCall() {
+    const phoneNumber = "05 57 75 10 10";
+    if (confirm("Souhaitez-vous appeler Transac Express au " + phoneNumber + " ?")) {
+        window.location.href = "tel:+33557751010";
+    }
+}
+
+/**
+ * Ouvre la modale de sélection du service de navigation (GPS)
+ */
+function openMapChoice() {
+    const mapModal = document.getElementById('map-modal');
+    if (mapModal) {
+        mapModal.style.display = 'flex';
+    } else {
+        // Fallback si la modale n'est pas encore dans le HTML
+        window.open("https://maps.google.com/?q=4+rue+Albert+1er+33250+Pauillac", "_blank");
+    }
 };
