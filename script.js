@@ -1,43 +1,43 @@
-// --- NAVIGATION SPA CORRIGÉE ---
+// ==========================================
+// 1. NAVIGATION SPA (SÉCURISÉE)
+// ==========================================
 function navigate(targetId) {
-    console.log("Tentative de navigation vers : " + targetId); // Pour vérifier si le clic marche
-    
-    const targetPage = document.getElementById('page-' + targetId);
-    const allPages = document.querySelectorAll('.page');
-    const navItems = document.querySelectorAll('.nav-item');
+    // Si l'événement existe, on empêche le rechargement de la page
+    if (window.event) window.event.preventDefault();
 
+    const targetPage = document.getElementById('page-' + targetId);
+    
     if (targetPage) {
-        // 1. Cacher toutes les pages
-        allPages.forEach(page => {
+        // Cacher absolument toutes les pages
+        document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
-            page.style.display = 'none'; // Sécurité supplémentaire
+            page.style.display = 'none'; // Sécurité forçage
         });
 
-        // 2. Afficher la page cible
+        // Afficher la page demandée
         targetPage.classList.add('active');
-        targetPage.style.display = 'block';
+        targetPage.style.display = 'block'; // Sécurité forçage pour Pauillac
 
-        // 3. Gérer les classes actives sur le menu
-        navItems.forEach(link => {
+        // Mise à jour visuelle du menu
+        document.querySelectorAll('.nav-item').forEach(link => {
             link.classList.remove('active');
             if(link.getAttribute('data-target') === targetId) {
                 link.classList.add('active');
             }
         });
 
-        // 4. Retour en haut
+        // Retour en haut de page fluide
         window.scrollTo(0, 0);
 
-        // 5. Fonctions spécifiques
-        if(targetId === 'catalogue' && typeof renderCatalogue === 'function') {
-            renderCatalogue();
-        }
+        // Déclencher le catalogue si on arrive sur la page
+        if(targetId === 'catalogue') renderCatalogue();
     } else {
-        console.error("ERREUR : La section avec l'ID 'page-" + targetId + "' n'existe pas dans le HTML.");
+        console.error("Erreur : La section 'page-" + targetId + "' n'existe pas.");
     }
 }
+
 // ==========================================
-// 2. SIMULATEUR FISCAL
+// 2. SIMULATEUR FISCAL EXPERT
 // ==========================================
 const DURATIONS = [
     { years: 6, rate: 0.12 },
@@ -50,76 +50,77 @@ function formatEur(num) {
     return new Intl.NumberFormat('fr-FR').format(Math.round(num)) + ' €';
 }
 
-function setSafeText(id, text) {
-    const el = document.getElementById(id);
-    if (el) el.innerText = text;
-}
-
 function updateSim() {
     try {
-        const prix = parseFloat(document.getElementById('sim-prix')?.value) || 0;
-        const notairePct = parseFloat(document.getElementById('sim-notaire-pct')?.value) || 8;
-        const travaux = parseFloat(document.getElementById('sim-travaux')?.value) || 0;
-        const surface = parseFloat(document.getElementById('sim-surface')?.value) || 0;
-        
-        const apport = parseFloat(document.getElementById('sim-apport')?.value) || 0;
-        const revenus = parseFloat(document.getElementById('sim-revenus')?.value) || 0;
-        const tauxPret = parseFloat(document.getElementById('sim-taux')?.value) || 0;
-        const nbMois = parseFloat(document.getElementById('sim-duree-mois')?.value) || 0;
-        const assurancePct = 0.36; // Valeur par défaut si besoin
+        const prix = parseFloat(document.getElementById('sim-prix').value) || 0;
+        const notairePct = parseFloat(document.getElementById('sim-notaire-pct').value) || 8;
+        const travaux = parseFloat(document.getElementById('sim-travaux').value) || 0;
+        const surface = parseFloat(document.getElementById('sim-surface').value) || 0;
+        const apport = parseFloat(document.getElementById('sim-apport').value) || 0;
+        const revenus = parseFloat(document.getElementById('sim-revenus').value) || 0;
+        const tauxPret = parseFloat(document.getElementById('sim-taux').value) || 0;
+        const nbMois = parseFloat(document.getElementById('sim-duree-mois').value) || 240;
 
+        // 1. Frais de notaire
         const notaireMontant = prix * (notairePct / 100);
-        setSafeText('val-notaire-montant', `= ${formatEur(notaireMontant)}`);
+        document.getElementById('val-notaire-montant').innerText = `= ${formatEur(notaireMontant)}`;
 
+        // 2. Assiette fiscale et réduction d'impôt
         const totalProjet = prix + notaireMontant + travaux;
-        const ratioTravaux = totalProjet > 0 ? (travaux / totalProjet) * 100 : 0;
-        const isEligible = ratioTravaux >= 25;
-        
         const assiette = Math.min(totalProjet, 300000);
         const durationObj = DURATIONS[currentDurationIndex];
         const reduction = assiette * durationObj.rate;
         const reductionAn = reduction / durationObj.years;
 
-        const coeff = surface > 0 ? Math.min(1.2, 0.7 + (19/surface)) : 0;
-        const loyer = (9.83 * surface * coeff).toFixed(0);
+        // 3. Ratio Travaux (Éligibilité 25%)
+        const ratioTravaux = totalProjet > 0 ? (travaux / totalProjet) * 100 : 0;
+        const isEligible = ratioTravaux >= 25;
+        const alertRatio = document.getElementById('alert-ratio');
+        if (alertRatio) alertRatio.style.display = isEligible ? 'none' : 'block';
+        document.getElementById('val-ratio-alert').innerText = ratioTravaux.toFixed(1) + '%';
+        document.getElementById('res-ratio').innerText = ratioTravaux.toFixed(1) + '%';
+        document.getElementById('res-ratio').className = isEligible ? 'text-primary bold' : 'text-red bold';
 
+        // 4. Loyer estimé (Zone B2)
+        const coeff = surface > 0 ? Math.min(1.2, 0.7 + (19/surface)) : 0;
+        const loyerBase = 9.83; // Plafond Zone B2
+        const loyerFinal = (loyerBase * surface * coeff).toFixed(0);
+        document.getElementById('res-loyer').innerText = loyerFinal + ' €/mois';
+        document.getElementById('res-loyer-detail').innerText = `Base : 9.83 €/m² × ${surface} m² × coeff. (${coeff.toFixed(2)})`;
+
+        // 5. Financement et Mensualité
         const capitalEmprunte = Math.max(0, totalProjet - apport);
         const tauxMensuel = (tauxPret / 100) / 12;
-        
-        let mensualitePret = 0;
+        let mensualite = 0;
         if (tauxMensuel > 0 && nbMois > 0) {
-            mensualitePret = capitalEmprunte * (tauxMensuel * Math.pow(1 + tauxMensuel, nbMois)) / (Math.pow(1 + tauxMensuel, nbMois) - 1);
+            mensualite = capitalEmprunte * (tauxMensuel * Math.pow(1 + tauxMensuel, nbMois)) / (Math.pow(1 + tauxMensuel, nbMois) - 1);
         } else if (nbMois > 0) {
-            mensualitePret = capitalEmprunte / nbMois; 
-        }
-        
-        const assuranceMensuelle = (capitalEmprunte * (assurancePct / 100)) / 12;
-        const mensualiteTotale = mensualitePret + assuranceMensuelle;
-        const tauxEndettement = revenus > 0 ? (mensualiteTotale / revenus) * 100 : 0;
-        
-        // MAJ Interface
-        setSafeText('res-resume-prix', formatEur(prix));
-        setSafeText('res-resume-notaire', formatEur(notaireMontant));
-        setSafeText('res-resume-travaux', formatEur(travaux));
-        setSafeText('res-resume-reduction', formatEur(reduction));
-        setSafeText('res-reduction', formatEur(reduction));
-        setSafeText('res-sub', `sur ${durationObj.years} ans • soit ${formatEur(reductionAn)}/an`);
-        setSafeText('res-assiette', formatEur(assiette));
-        setSafeText('res-loyer', loyer + ' €/mois');
-        
-        const resRatio = document.getElementById('res-ratio');
-        if (resRatio) {
-            resRatio.innerText = ratioTravaux.toFixed(1) + '%';
-            resRatio.className = isEligible ? 'bold text-primary' : 'bold text-red';
+            mensualite = capitalEmprunte / nbMois; 
         }
 
-        setSafeText('res-mensualite', formatEur(mensualitePret));
-        setSafeText('res-endettement-txt', tauxEndettement.toFixed(1) + '%');
-        
+        // 6. Endettement
+        const ratioEndettement = revenus > 0 ? (mensualite / revenus) * 100 : 0;
         const barFill = document.getElementById('res-endettement-bar');
-        if (barFill) barFill.style.width = Math.min(tauxEndettement, 100) + '%';
+        document.getElementById('res-endettement-txt').innerText = ratioEndettement.toFixed(1) + "%";
+        if (barFill) {
+            barFill.style.width = Math.min(ratioEndettement, 100) + "%";
+            barFill.style.background = ratioEndettement > 35 ? "#1A2B3C" : "#C5A059";
+        }
+        document.getElementById('res-endettement-status').innerText = ratioEndettement > 35 ? "⚠️ Endettement élevé (>35%)" : "✅ Capacité d'emprunt respectée";
 
-    } catch(e) { console.error(e); }
+        // 7. MAJ Résumé
+        document.getElementById('res-resume-prix').innerText = formatEur(prix);
+        document.getElementById('res-resume-notaire').innerText = formatEur(notaireMontant);
+        document.getElementById('res-resume-travaux').innerText = formatEur(travaux);
+        document.getElementById('res-resume-reduction').innerText = formatEur(reduction);
+        document.getElementById('res-reduction').innerText = formatEur(reduction);
+        document.getElementById('res-sub').innerText = `sur ${durationObj.years} ans • soit ${formatEur(reductionAn)}/an`;
+        document.getElementById('res-assiette').innerText = formatEur(assiette);
+        document.getElementById('res-mensualite').innerText = formatEur(mensualite);
+
+    } catch(e) {
+        console.error("Erreur simulateur :", e);
+    }
 }
 
 function setDuree(index) {
@@ -131,31 +132,24 @@ function setDuree(index) {
     updateSim();
 }
 
-function renderCatalogue() {}
+function renderCatalogue() {
+    // Fonction prête pour injection de biens immobiliers
+    const grid = document.getElementById('catalogue-grid');
+    if (grid && grid.innerHTML === "") {
+        grid.innerHTML = "<p class='text-center'>Recherche de biens en cours à Pauillac...</p>";
+    }
+}
 
 // ==========================================
-// 3. LOGIQUE WEBHOOK & MODALES
+// 3. LOGIQUE WEBHOOK (MAKE.COM) & MODALES
 // ==========================================
 const WEBHOOK_URL = "https://hook.eu1.make.com/ztu9s3dt8jtlycb3kvvvgkjkn36ii6k1"; 
 
-function openModal() {
-    const modal = document.getElementById('lead-modal');
-    if (modal) modal.classList.add('active');
-}
+function openModal() { document.getElementById('lead-modal').classList.add('active'); }
+function closeModal(e) { if(e) e.preventDefault(); document.getElementById('lead-modal').classList.remove('active'); }
 
-function closeModal(event) {
-    if (event) event.preventDefault();
-    const modal = document.getElementById('lead-modal');
-    if (modal) modal.classList.remove('active');
-}
+function openMapChoice() { document.getElementById('map-modal').classList.add('active'); }
 
-// Spécifique au choix GPS dans le footer
-function openMapChoice() {
-    const mapModal = document.getElementById('map-modal');
-    if (mapModal) mapModal.style.display = 'flex';
-}
-
-// Spécifique à l'appel téléphonique
 function confirmCall() {
     const phoneNumber = "05 57 75 10 10";
     if (confirm("Souhaitez-vous appeler Transac Express au " + phoneNumber + " ?")) {
@@ -165,13 +159,48 @@ function confirmCall() {
 
 async function submitForm(event) {
     event.preventDefault(); 
-    // ... (votre logique submitForm actuelle est correcte)
+    
+    const btn = document.getElementById('submit-btn');
+    const form = document.getElementById('lead-form');
+    const successMsg = document.getElementById('success-message');
+    
+    const leadData = {
+        date: new Date().toISOString(),
+        nom: document.getElementById('lead-name').value,
+        email: document.getElementById('lead-email').value,
+        projet_prix: document.getElementById('res-resume-prix').innerText,
+        projet_travaux: document.getElementById('res-resume-travaux').innerText,
+        projet_reduction: document.getElementById('res-resume-reduction').innerText
+    };
+
+    btn.disabled = true;
+    btn.innerText = "ENVOI EN COURS...";
+
+    try {
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData)
+        });
+
+        if (response.ok) {
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+        } else {
+            alert("Erreur lors de l'envoi. Veuillez réessayer.");
+            btn.disabled = false;
+            btn.innerText = "ENVOYER MON PLAN (PDF)";
+        }
+    } catch (error) {
+        console.error("Erreur Webhook :", error);
+        btn.disabled = false;
+    }
 }
 
 // ==========================================
-// 4. INITIALISATION
+// 4. LANCEMENT
 // ==========================================
 window.onload = () => {
     updateSim();
     renderCatalogue();
-}
+};
