@@ -133,7 +133,8 @@ const PROPERTIES = [
         surface: 140,
         travaux: 65000,
         img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80",
-        badge: "Idéal Investisseur"
+        badge: "Idéal Investisseur",
+        plan: "plan-immeuble.pdf" // 👈 NOUVEAUTÉ ICI
     },
     {
         id: 2,
@@ -143,7 +144,8 @@ const PROPERTIES = [
         surface: 90,
         travaux: 45000,
         img: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=600&q=80",
-        badge: "Forte rentabilité"
+        badge: "Forte rentabilité",
+        plan: "plan-immeuble.pdf" // 👈 NOUVEAUTÉ ICI
     },
     {
         id: 3,
@@ -153,7 +155,8 @@ const PROPERTIES = [
         surface: 65,
         travaux: 35000,
         img: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=600&q=80",
-        badge: "Coup de cœur"
+        badge: "Coup de cœur",
+        plan: "plan-immeuble.pdf" // 👈 NOUVEAUTÉ ICI
     }
 ];
 
@@ -171,8 +174,8 @@ function renderCatalogue() {
             </div>
             <div class="property-body">
                 <div class="property-header">
-                    <h3>${prop.title}</h3>
-                    <div class="property-price">${formatEur(prop.price)}</div>
+                    <h3 style="font-size: 1.1rem; line-height: 1.3; max-width: 65%; color: var(--primary); font-family: var(--font-title);">${prop.title}</h3>
+                    <div style="font-family: var(--font-title); font-size: 1.4rem; color: var(--accent); font-weight: 700;">${formatEur(prop.price)}</div>
                 </div>
                 <p class="text-gray text-xs mb-20">📍 ${prop.location}</p>
                 
@@ -187,9 +190,14 @@ function renderCatalogue() {
                     </div>
                 </div>
 
-                <button class="btn-primary" style="width: 100%; font-size: 0.85rem;" onclick="loadPropertyInSim(${prop.price}, ${prop.travaux}, ${prop.surface})">
+                <button class="btn-primary" style="width: 100%; font-size: 0.85rem; margin-bottom: 10px;" onclick="loadPropertyInSim(${prop.price}, ${prop.travaux}, ${prop.surface})">
                     ÉTUDIER CE PROJET
                 </button>
+                
+                <a href="${prop.plan}" target="_blank" style="display: flex; justify-content: center; align-items: center; width: 100%; font-size: 0.85rem; padding: 14px; border: 1px solid var(--accent); color: var(--primary); font-weight: 700; border-radius: var(--radius-luxe); text-transform: uppercase; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background='var(--accent)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='var(--primary)'">
+                    📄 Voir les plans (PDF)
+                </a>
+
             </div>
         </div>
     `).join('');
