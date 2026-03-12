@@ -1,35 +1,41 @@
-// ==========================================
-// 1. NAVIGATION SPA
-// ==========================================
+// --- NAVIGATION SPA CORRIGÉE ---
 function navigate(targetId) {
-    // Empêche le comportement par défaut (rechargement/remontée de page)
-    if (window.event) window.event.preventDefault();
-
-    const targetPage = document.getElementById('page-' + targetId);
+    console.log("Tentative de navigation vers : " + targetId); // Pour vérifier si le clic marche
     
+    const targetPage = document.getElementById('page-' + targetId);
+    const allPages = document.querySelectorAll('.page');
+    const navItems = document.querySelectorAll('.nav-item');
+
     if (targetPage) {
-        // Cacher toutes les pages
-        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-        
-        // Afficher la page cible
+        // 1. Cacher toutes les pages
+        allPages.forEach(page => {
+            page.classList.remove('active');
+            page.style.display = 'none'; // Sécurité supplémentaire
+        });
+
+        // 2. Afficher la page cible
         targetPage.classList.add('active');
-        
-        // Gérer l'état actif du menu de navigation
-        document.querySelectorAll('.nav-item').forEach(link => {
+        targetPage.style.display = 'block';
+
+        // 3. Gérer les classes actives sur le menu
+        navItems.forEach(link => {
             link.classList.remove('active');
             if(link.getAttribute('data-target') === targetId) {
                 link.classList.add('active');
             }
         });
 
-        // Remonter en haut de la nouvelle section
+        // 4. Retour en haut
         window.scrollTo(0, 0);
 
-        // Déclencher le catalogue si besoin
-        if(targetId === 'catalogue') renderCatalogue();
+        // 5. Fonctions spécifiques
+        if(targetId === 'catalogue' && typeof renderCatalogue === 'function') {
+            renderCatalogue();
+        }
+    } else {
+        console.error("ERREUR : La section avec l'ID 'page-" + targetId + "' n'existe pas dans le HTML.");
     }
 }
-
 // ==========================================
 // 2. SIMULATEUR FISCAL
 // ==========================================
