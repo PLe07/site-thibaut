@@ -200,3 +200,27 @@ ul { list-style: none; }
     .navbar { padding: 15px 20px; }
     .nav-links { display: none; } /* Menu mobile à prévoir si besoin */
 }
+
+/* =========================================
+   CATALOGUE DE BIENS IMMOBILIERS
+   ========================================= */
+.property-card { 
+    background: var(--white); border-radius: var(--radius-luxe); overflow: hidden; 
+    border: 1px solid var(--border-fine); transition: all 0.4s ease; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+}
+.property-card:hover { 
+    border-color: var(--accent); transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+}
+.property-img-wrap { position: relative; height: 240px; overflow: hidden; }
+.property-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.property-card:hover .property-img-wrap img { transform: scale(1.05); }
+
+.badge-red { background: var(--accent); color: var(--primary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; font-weight: bold; border-radius: var(--radius-luxe); }
+.badge-dark { background: rgba(26,43,60,0.9); color: var(--white); padding: 6px 12px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; border-radius: var(--radius-luxe); }
+
+.property-body { padding: 30px; }
+.property-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.property-header h3 { font-size: 1.1rem; line-height: 1.3; max-width: 65%; color: var(--primary); }
+.property-price { font-family: var(--font-title); font-size: 1.4rem; color: var(--accent); font-weight: 700; }
