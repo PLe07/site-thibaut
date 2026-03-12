@@ -119,11 +119,94 @@ function setDuree(index) {
     updateSim();
 }
 
+// ==========================================
+// CATALOGUE ET INJECTION SIMULATEUR
+// ==========================================
+
+// Voici ta base de données de biens (Tu pourras modifier les prix, surfaces, photos ici)
+const PROPERTIES = [
+    {
+        id: 1,
+        title: "Immeuble de Rapport - 3 Lots",
+        location: "Pauillac Centre - À 200m des quais",
+        price: 185000,
+        surface: 140,
+        travaux: 65000,
+        img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80",
+        badge: "Idéal Investisseur"
+    },
+    {
+        id: 2,
+        title: "Maison de Ville en Pierre",
+        location: "Pauillac - Proche commodités",
+        price: 120000,
+        surface: 90,
+        travaux: 45000,
+        img: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=600&q=80",
+        badge: "Forte rentabilité"
+    },
+    {
+        id: 3,
+        title: "Grand T3 avec Extérieur",
+        location: "Pauillac - Quartier historique",
+        price: 95000,
+        surface: 65,
+        travaux: 35000,
+        img: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=600&q=80",
+        badge: "Coup de cœur"
+    }
+];
+
 function renderCatalogue() {
     const grid = document.getElementById('catalogue-grid');
-    if (grid && grid.innerHTML === "") {
-        grid.innerHTML = "<p class='text-center'>Recherche de biens en cours à Pauillac...</p>";
-    }
+    if (!grid) return;
+
+    // Construit le HTML pour chaque bien de la liste
+    grid.innerHTML = PROPERTIES.map(prop => `
+        <div class="property-card">
+            <div class="property-img-wrap">
+                <img src="${prop.img}" alt="${prop.title}">
+                <div class="badge-red" style="position: absolute; top: 15px; left: 15px;">${prop.badge}</div>
+                <div class="badge-dark" style="position: absolute; top: 15px; right: 15px;">ÉLIGIBLE DENORMANDIE</div>
+            </div>
+            <div class="property-body">
+                <div class="property-header">
+                    <h3>${prop.title}</h3>
+                    <div class="property-price">${formatEur(prop.price)}</div>
+                </div>
+                <p class="text-gray text-xs mb-20">📍 ${prop.location}</p>
+                
+                <div class="grid-2 gap-15 mb-20" style="text-align: center; border-top: 1px solid var(--border-fine); border-bottom: 1px solid var(--border-fine); padding: 15px 0;">
+                    <div>
+                        <span class="text-xs text-gray" style="display:block; text-transform:uppercase; font-weight:600;">Surface</span>
+                        <strong style="color: var(--primary); font-size:1.1rem;">${prop.surface} m²</strong>
+                    </div>
+                    <div style="border-left: 1px solid var(--border-fine);">
+                        <span class="text-xs text-gray" style="display:block; text-transform:uppercase; font-weight:600;">Travaux est.</span>
+                        <strong style="color: var(--accent); font-size:1.1rem;">${formatEur(prop.travaux)}</strong>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width: 100%; font-size: 0.85rem;" onclick="loadPropertyInSim(${prop.price}, ${prop.travaux}, ${prop.surface})">
+                    ÉTUDIER CE PROJET
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Fonction magique qui relie le catalogue au simulateur
+function loadPropertyInSim(prix, travaux, surface) {
+    // 1. Remplir les champs du simulateur
+    document.getElementById('sim-prix').value = prix;
+    document.getElementById('sim-travaux').value = travaux;
+    document.getElementById('sim-surface').value = surface;
+    
+    // 2. Mettre à jour les calculs
+    updateSim();
+    
+    // 3. Basculer sur la page du simulateur automatiquement
+    navigate('simulateur');
 }
 
 // ==========================================
