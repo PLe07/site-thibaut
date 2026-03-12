@@ -101,6 +101,15 @@ ul { list-style: none; }
     position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; 
     background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600') center/cover; 
 }
+.hero-title-large { 
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-title);
+    font-size: 4rem; 
+    font-weight: 600; 
+    color: var(--accent); /* C'est cette ligne qui donne la même couleur OR */
+    margin-bottom: 15px;}
+    
 .hero-overlay-dark { position: absolute; inset: 0; background: rgba(26,43,60,0.85); }
 .badge-outline { border: 1px solid var(--accent); color: var(--white); padding: 8px 20px; font-size: 0.75rem; text-transform: uppercase; }
 
