@@ -2,23 +2,19 @@
 // 1. NAVIGATION SPA (SÉCURISÉE)
 // ==========================================
 function navigate(targetId) {
-    // Si l'événement existe, on empêche le rechargement de la page
     if (window.event) window.event.preventDefault();
 
     const targetPage = document.getElementById('page-' + targetId);
     
     if (targetPage) {
-        // Cacher absolument toutes les pages
         document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
-            page.style.display = 'none'; // Sécurité forçage
+            page.style.display = 'none'; 
         });
 
-        // Afficher la page demandée
         targetPage.classList.add('active');
-        targetPage.style.display = 'block'; // Sécurité forçage pour Pauillac
+        targetPage.style.display = 'block'; 
 
-        // Mise à jour visuelle du menu
         document.querySelectorAll('.nav-item').forEach(link => {
             link.classList.remove('active');
             if(link.getAttribute('data-target') === targetId) {
@@ -26,10 +22,8 @@ function navigate(targetId) {
             }
         });
 
-        // Retour en haut de page fluide
         window.scrollTo(0, 0);
 
-        // Déclencher le catalogue si on arrive sur la page
         if(targetId === 'catalogue') renderCatalogue();
     } else {
         console.error("Erreur : La section 'page-" + targetId + "' n'existe pas.");
@@ -61,18 +55,15 @@ function updateSim() {
         const tauxPret = parseFloat(document.getElementById('sim-taux').value) || 0;
         const nbMois = parseFloat(document.getElementById('sim-duree-mois').value) || 240;
 
-        // 1. Frais de notaire
         const notaireMontant = prix * (notairePct / 100);
         document.getElementById('val-notaire-montant').innerText = `= ${formatEur(notaireMontant)}`;
 
-        // 2. Assiette fiscale et réduction d'impôt
         const totalProjet = prix + notaireMontant + travaux;
         const assiette = Math.min(totalProjet, 300000);
         const durationObj = DURATIONS[currentDurationIndex];
         const reduction = assiette * durationObj.rate;
         const reductionAn = reduction / durationObj.years;
 
-        // 3. Ratio Travaux (Éligibilité 25%)
         const ratioTravaux = totalProjet > 0 ? (travaux / totalProjet) * 100 : 0;
         const isEligible = ratioTravaux >= 25;
         const alertRatio = document.getElementById('alert-ratio');
@@ -81,14 +72,12 @@ function updateSim() {
         document.getElementById('res-ratio').innerText = ratioTravaux.toFixed(1) + '%';
         document.getElementById('res-ratio').className = isEligible ? 'text-primary bold' : 'text-red bold';
 
-        // 4. Loyer estimé (Zone B2)
         const coeff = surface > 0 ? Math.min(1.2, 0.7 + (19/surface)) : 0;
-        const loyerBase = 9.83; // Plafond Zone B2
+        const loyerBase = 9.83; 
         const loyerFinal = (loyerBase * surface * coeff).toFixed(0);
         document.getElementById('res-loyer').innerText = loyerFinal + ' €/mois';
         document.getElementById('res-loyer-detail').innerText = `Base : 9.83 €/m² × ${surface} m² × coeff. (${coeff.toFixed(2)})`;
 
-        // 5. Financement et Mensualité
         const capitalEmprunte = Math.max(0, totalProjet - apport);
         const tauxMensuel = (tauxPret / 100) / 12;
         let mensualite = 0;
@@ -98,7 +87,6 @@ function updateSim() {
             mensualite = capitalEmprunte / nbMois; 
         }
 
-        // 6. Endettement
         const ratioEndettement = revenus > 0 ? (mensualite / revenus) * 100 : 0;
         const barFill = document.getElementById('res-endettement-bar');
         document.getElementById('res-endettement-txt').innerText = ratioEndettement.toFixed(1) + "%";
@@ -108,7 +96,6 @@ function updateSim() {
         }
         document.getElementById('res-endettement-status').innerText = ratioEndettement > 35 ? "⚠️ Endettement élevé (>35%)" : "✅ Capacité d'emprunt respectée";
 
-        // 7. MAJ Résumé
         document.getElementById('res-resume-prix').innerText = formatEur(prix);
         document.getElementById('res-resume-notaire').innerText = formatEur(notaireMontant);
         document.getElementById('res-resume-travaux').innerText = formatEur(travaux);
@@ -133,7 +120,6 @@ function setDuree(index) {
 }
 
 function renderCatalogue() {
-    // Fonction prête pour injection de biens immobiliers
     const grid = document.getElementById('catalogue-grid');
     if (grid && grid.innerHTML === "") {
         grid.innerHTML = "<p class='text-center'>Recherche de biens en cours à Pauillac...</p>";
@@ -145,18 +131,18 @@ function renderCatalogue() {
 // ==========================================
 const WEBHOOK_URL = "https://hook.eu1.make.com/ztu9s3dt8jtlycb3kvvvgkjkn36ii6k1"; 
 
+// Gestion Modale PDF (Lead)
 function openModal() { document.getElementById('lead-modal').classList.add('active'); }
 function closeModal(e) { if(e) e.preventDefault(); document.getElementById('lead-modal').classList.remove('active'); }
 
+// Gestion Modale GPS
 function openMapChoice() { document.getElementById('map-modal').classList.add('active'); }
 
-function confirmCall() {
-    const phoneNumber = "05 57 75 10 10";
-    if (confirm("Souhaitez-vous appeler Transac Express au " + phoneNumber + " ?")) {
-        window.location.href = "tel:+33557751010";
-    }
-}
+// Gestion Modale Appel Téléphonique
+function confirmCall() { document.getElementById('call-modal').classList.add('active'); }
+function closeCallModal(e) { if(e) e.preventDefault(); document.getElementById('call-modal').classList.remove('active'); }
 
+// Soumission du formulaire
 async function submitForm(event) {
     event.preventDefault(); 
     
