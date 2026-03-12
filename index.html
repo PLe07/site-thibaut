@@ -14,11 +14,11 @@
                 <img src="logo.jpg" alt="Transac Express Logo" class="logo-img">
             </div>
             <ul class="nav-links">
-    <li><a href="javascript:void(0)" class="nav-item active" data-target="home" onclick="navigate('home')">Accueil</a></li>
-    <li><a href="javascript:void(0)" class="nav-item" data-target="pauillac" onclick="navigate('pauillac')">Investir à Pauillac</a></li>
-    <li><a href="javascript:void(0)" class="nav-item" data-target="catalogue" onclick="navigate('catalogue')">Biens à vendre</a></li>
-    <li><a href="javascript:void(0)" class="nav-item" data-target="simulateur" onclick="navigate('simulateur')">Simulateur fiscal</a></li>
-</ul>
+                <li><a href="javascript:void(0)" class="nav-item active" data-target="home" onclick="navigate('home')">Accueil</a></li>
+                <li><a href="javascript:void(0)" class="nav-item" data-target="pauillac" onclick="navigate('pauillac')">Investir à Pauillac</a></li>
+                <li><a href="javascript:void(0)" class="nav-item" data-target="catalogue" onclick="navigate('catalogue')">Biens à vendre</a></li>
+                <li><a href="javascript:void(0)" class="nav-item" data-target="simulateur" onclick="navigate('simulateur')">Simulateur fiscal</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -122,47 +122,20 @@
                         <div class="pro-card">
                             <div class="pro-card-header">1. Paramètres de l'opération</div>
                             <div class="grid-2 gap-15">
-                                <div class="input-group-pro">
-                                    <label>Prix d'achat du bien ancien (€)</label>
-                                    <input type="number" id="sim-prix" value="150000" oninput="updateSim()">
-                                </div>
-                                <div class="input-group-pro">
-                                    <label>Frais de notaire estimé (%)</label>
-                                    <div style="display:flex; align-items:center; gap: 10px;">
-                                        <input type="number" id="sim-notaire-pct" value="8" step="0.1" style="width:80px;" oninput="updateSim()">
-                                        <span id="val-notaire-montant" class="text-gray text-xs" style="font-weight:600;">= 12 000 €</span>
-                                    </div>
-                                </div>
-                                <div class="input-group-pro">
-                                    <label>Budget total travaux TTC (€)</label>
-                                    <input type="number" id="sim-travaux" value="50000" oninput="updateSim()">
-                                </div>
-                                <div class="input-group-pro">
-                                    <label>Surface habitable (m²)</label>
-                                    <input type="number" id="sim-surface" value="60" oninput="updateSim()">
-                                </div>
+                                <div class="input-group-pro"><label>Prix d'achat du bien ancien (€)</label><input type="number" id="sim-prix" value="150000" oninput="updateSim()"></div>
+                                <div class="input-group-pro"><label>Frais de notaire estimé (%)</label><div style="display:flex; align-items:center; gap: 10px;"><input type="number" id="sim-notaire-pct" value="8" step="0.1" style="width:80px;" oninput="updateSim()"><span id="val-notaire-montant" class="text-gray text-xs" style="font-weight:600;">= 12 000 €</span></div></div>
+                                <div class="input-group-pro"><label>Budget total travaux TTC (€)</label><input type="number" id="sim-travaux" value="50000" oninput="updateSim()"></div>
+                                <div class="input-group-pro"><label>Surface habitable (m²)</label><input type="number" id="sim-surface" value="60" oninput="updateSim()"></div>
                             </div>
                         </div>
 
                         <div class="pro-card">
                             <div class="pro-card-header">2. Le Financement Bancaire</div>
                             <div class="grid-2 gap-15">
-                                <div class="input-group-pro">
-                                    <label>Apport personnel total (€)</label>
-                                    <input type="number" id="sim-apport" value="20000" oninput="updateSim()">
-                                </div>
-                                <div class="input-group-pro">
-                                    <label>Vos revenus nets mensuels (€)</label>
-                                    <input type="number" id="sim-revenus" value="3000" oninput="updateSim()">
-                                </div>
-                                <div class="input-group-pro">
-                                    <label>Taux d'intérêt nominal (%)</label>
-                                    <input type="number" id="sim-taux" value="3.8" step="0.1" oninput="updateSim()">
-                                </div>
-                                <div class="input-group-pro">
-                                    <label>Durée de l'emprunt (mois)</label>
-                                    <input type="number" id="sim-duree-mois" value="240" oninput="updateSim()">
-                                </div>
+                                <div class="input-group-pro"><label>Apport personnel total (€)</label><input type="number" id="sim-apport" value="20000" oninput="updateSim()"></div>
+                                <div class="input-group-pro"><label>Vos revenus nets mensuels (€)</label><input type="number" id="sim-revenus" value="3000" oninput="updateSim()"></div>
+                                <div class="input-group-pro"><label>Taux d'intérêt nominal (%)</label><input type="number" id="sim-taux" value="3.8" step="0.1" oninput="updateSim()"></div>
+                                <div class="input-group-pro"><label>Durée de l'emprunt (mois)</label><input type="number" id="sim-duree-mois" value="240" oninput="updateSim()"></div>
                             </div>
                         </div>
 
@@ -182,7 +155,6 @@
                     </div>
 
                     <div class="sim-right">
-                        
                         <div class="resume-card mb-20">
                             <h3 class="resume-title text-center">Résumé de votre projet</h3>
                             <div class="res-row mt-20"><span>Acquisition</span><strong id="res-resume-prix">150 000 €</strong></div>
@@ -203,29 +175,21 @@
                                 <div class="res-row"><span>Assiette fiscale retenue</span><strong id="res-assiette">212 000 €</strong></div>
                                 <div class="res-row"><span>Ratio travaux</span><strong id="res-ratio" class="text-red">23.6%</strong></div>
                                 <div class="res-row mt-15 pt-15" style="border-top: 1px solid var(--border-fine); align-items: flex-start;">
-                                    <div>
-                                        <span style="display:block; color:var(--primary); font-weight:600;">Loyer max. estimé (Zone B2)</span>
-                                        <span class="text-xs text-gray" id="res-loyer-detail">Base...</span>
-                                    </div>
+                                    <div><span style="display:block; color:var(--primary); font-weight:600;">Loyer max. estimé (Zone B2)</span><span class="text-xs text-gray" id="res-loyer-detail">Calcul...</span></div>
                                     <strong class="text-primary" style="font-size:1.1rem;" id="res-loyer">600 €/m</strong>
                                 </div>
                             </div>
                         </div>
 
                         <div class="cta-container mb-30">
-                            <button class="btn-lead" onclick="openModal()">
-                                TÉLÉCHARGER MON PLAN DE FINANCEMENT PERSONNALISÉ
-                            </button>
-                            <p class="promise-text">Inclus : Analyse graphique de vos pôles de dépenses, calendrier de défiscalisation et plan de financement détaillé (PDF).</p>
+                            <button class="btn-lead" onclick="openModal()">TÉLÉCHARGER MON PLAN DE FINANCEMENT (PDF)</button>
                         </div>
 
                         <div class="pro-card text-center" style="padding: 30px;">
-                            <div class="jess-surtitle" style="color:var(--gray-text);">MENSUALITÉ DE CRÉDIT (hors assurance)</div>
+                            <div class="jess-surtitle">MENSUALITÉ DE CRÉDIT ESTIMÉE</div>
                             <div class="text-primary mt-10" style="font-size:2.5rem; font-weight:700; font-family:var(--font-title);" id="res-mensualite">904 €</div>
-                            <div class="text-sm text-gray mt-10" id="res-mensualite-detail">+ 48€ d'assurance emprunteur</div>
-                            
                             <div class="budget-box mt-20 text-left" id="budget-container">
-                                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-weight:600; font-size:0.9rem;" id="budget-header">
+                                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-weight:600; font-size:0.9rem;">
                                     <span>Poids sur mon budget</span>
                                     <strong id="res-endettement-txt">31.7%</strong>
                                 </div>
@@ -233,7 +197,6 @@
                                 <div class="text-xs mt-10 bold" id="res-endettement-status">✅ Capacité d'emprunt respectée</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -242,33 +205,13 @@
         <section id="page-mentions" class="page">
             <div class="container section-padding" style="max-width: 800px;">
                 <h1 class="page-title">Mentions légales</h1>
-               <div class="mentions-content">
-            <h2 class="mentions-subtitle">Éditeur</h2>
-            <p>Le site www.transacexpress.com est édité par :</p>
-            <p>Dénomination sociale : <strong>MEDOC INVESTISSEMENT</strong></p>
-            <p>Forme sociale : SARL</p>
-            <p>Capital social : 1 440 000 €</p>
-            <p>Siège social : 4 rue Albert 1er, 33250 PAUILLAC</p>
-            <p>RCS de Bordeaux : 477 710 222</p>
-            <p>Numéro TVA Intracommunautaire : FR07477710222</p>
-            <p>Numéro de téléphone : 05 57 75 10 10 &nbsp;|&nbsp; E-mail : contact@transacexpress.com</p>
-            <p>Directeurs de la publication : Brice DESCUDET - Jean-Fernand LIAUD</p>
-
-            <h2 class="mentions-subtitle">Hébergeur</h2>
-            <p>Le site www.transacexpress.com est hébergé par :</p>
-            <p>Dénomination sociale : L’hébergement du site est réalisé par la société <strong>Google Ireland Limited</strong></p>
-            <p>Société de droit irlandais immatriculée en Irlande (sous le numéro : 368047)</p>
-            <p>Adresse : Gordon House, Barrow Street, Dublin 4, Irlande</p>
-
-            <h2 class="mentions-subtitle">Propriété intellectuelle</h2>
-            <p>La société MEDOC INVESTISSEMENT est propriétaire des droits de propriété intellectuelle sur le site www.transacexpress.com et les éléments qui le composent, notamment les textes, illustrations, photographies et informations. Toute reproduction, communication au public ou réutilisation de tout ou partie du site, par quelque moyen et sous quelque forme que ce soit, est interdite, sous peine de contrefaçon, sauf accord exprès et préalable de la société MEDOC INVESTISSEMENT.</p>
-
-            <h2 class="mentions-subtitle">Liens vers d’autres sites</h2>
-            <p>La mise en place d’un lien entre le site www.transacexpress.com et un autre site web est interdit, sauf accord exprès et préalable de la société MEDOC INVESTISSEMENT. En tout état de cause, la société MEDOC INVESTISSEMENT exclut toute responsabilité quant aux contenus de tout site web ayant établi un lien avec le site web www.transacexpress.com.</p>
-
-            <h2 class="mentions-subtitle">Responsabilité</h2>
-            <p>La société MEDOC INVESTISSEMENT s’efforce d’assurer l’exactitude des informations diffusées sur le site web. Cependant, ces informations sont publiées à titre indicatif et sont par nature évolutives. L’utilisation de ces informations est faite sous l’entière responsabilité des visiteurs du site.</p>
-        </div>
+                <div class="mentions-content">
+                    <h2>Éditeur</h2>
+                    <p>Dénomination sociale : <strong>MEDOC INVESTISSEMENT</strong></p>
+                    <p>Siège social : 4 rue Albert 1er, 33250 PAUILLAC</p>
+                    <p>RCS de Bordeaux : 477 710 222</p>
+                    <p>Numéro de téléphone : 05 57 75 10 10 | E-mail : contact@transacexpress.com</p>
+                </div>
             </div>
         </section>
     </main>
@@ -276,91 +219,54 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-               <div class="footer-col">
-    <div style="margin-bottom: 20px;">
-        <img src="logo.jpg" alt="Transac Express Logo" style="height: 60px; width: auto; display: block;">
-    </div>
-    <p class="text-gray text-sm">L'expertise du marchand de biens au service de votre patrimoine immobilier dans le Médoc.</p>
-</div>
+                <div class="footer-col"><img src="logo.jpg" alt="Logo" style="height: 60px; margin-bottom: 20px;"><p class="text-gray text-sm">L'expertise du marchand de biens au service du Médoc.</p></div>
                 <div class="footer-col">
                     <h4 class="footer-title">NAVIGATION</h4>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="navigate('home')">Accueil</a></li>
-                        <li><a href="#" onclick="navigate('pauillac')">Investir à Pauillac</a></li>
-                        <li><a href="#" onclick="navigate('catalogue')">Biens à vendre</a></li>
-                        <li><a href="#" onclick="navigate('simulateur')">Simulateur fiscal</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('home')">Accueil</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('pauillac')">Investir à Pauillac</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('catalogue')">Biens à vendre</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('simulateur')">Simulateur fiscal</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">CONTACT</h4>
-               <ul class="footer-contact">
-    <li>
-        <a href="javascript:void(0)" onclick="openMapChoice()" title="Choisir mon GPS">
-            📍 Pauillac, Gironde (33)
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" onclick="confirmCall()" title="Appeler">
-            📞 05.57.75.10.10
-        </a>
-    </li> 
-    <li>
-        <a href="mailto:contact@transacexpress.com">
-            ✉️ contact@transacexpress.com
-        </a>
-    </li>
-</ul>
-
-<div id="map-modal" class="modal-overlay" style="display:none; z-index: 9999;" onclick="this.style.display='none'">
-    <div class="modal-box" style="max-width: 300px; text-align: center;" onclick="event.stopPropagation()">
-        <h3 style="margin-bottom:20px; font-family: 'Playfair Display';">Naviguer avec :</h3>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=4+rue+Albert+1er+33250+Pauillac" target="_blank" class="btn-secondary" style="display:block; text-decoration:none;">Google Maps</a>
-            <a href="https://waze.com/ul?q=4+rue+Albert+1er+33250+Pauillac&navigate=yes" target="_blank" class="btn-secondary" style="display:block; text-decoration:none;">Waze</a>
-            <a href="http://maps.apple.com/?daddr=4+rue+Albert+1er+33250+Pauillac" target="_blank" class="btn-secondary" style="display:block; text-decoration:none;">Apple Plans</a>
-        </div>
-        <button onclick="document.getElementById('map-modal').style.display='none'" style="margin-top:20px; background:none; border:none; color:gray; cursor:pointer;">Annuler</button>
-    </div>
-</div>
+                    <ul class="footer-contact">
+                        <li><a href="javascript:void(0)" onclick="openMapChoice()">📍 Pauillac, Gironde (33)</a></li>
+                        <li><a href="javascript:void(0)" onclick="confirmCall()">📞 05.57.75.10.10</a></li>
+                        <li><a href="mailto:contact@transacexpress.com">✉️ contact@transacexpress.com</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2026 MEDOC INVESTISSEMENT — SARL au capital de 1 440 000 €</p>
-                <a href="#" onclick="navigate('mentions')">Mentions légales</a>
+                <a href="javascript:void(0)" onclick="navigate('mentions')">Mentions légales</a>
             </div>
         </div>
     </footer>
 
+    <div id="map-modal" class="modal-overlay" onclick="this.classList.remove('active')">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="document.getElementById('map-modal').classList.remove('active')">&times;</span>
+            <h2 class="modal-title">Choisir un GPS</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 25px;">
+                <a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="btn-secondary" style="color:var(--primary); border-color:var(--primary); text-align: center;">Google Maps</a>
+                <a href="https://waze.com/ul?q=4+rue+Albert+1er+33250+Pauillac&navigate=yes" target="_blank" class="btn-secondary" style="color:var(--primary); border-color:var(--primary); text-align: center;">Waze</a>
+                <a href="http://maps.apple.com/?daddr=4+rue+Albert+1er+33250+Pauillac" target="_blank" class="btn-secondary" style="color:var(--primary); border-color:var(--primary); text-align: center;">Apple Plans</a>
+            </div>
+        </div>
+    </div>
+
     <div id="lead-modal" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal-box" onclick="event.stopPropagation()">
             <span class="modal-close" onclick="closeModal(event)">&times;</span>
-            <h2 class="modal-title">Votre étude patrimoniale est prête.</h2>
-            
-            <p class="modal-text" id="modal-intro">Recevez votre dossier complet par email. Ce document inclut votre analyse graphique détaillée, votre calendrier de défiscalisation Denormandie ainsi qu'une simulation de financement optimisée.</p>
-            
-            <form class="modal-form" id="lead-form" onsubmit="submitForm(event)">
-                <div class="input-group-pro mb-10">
-                    <input type="text" id="lead-name" placeholder="Prénom & Nom" required>
-                </div>
-                <div class="input-group-pro mb-10">
-                    <input type="email" id="lead-email" placeholder="Email, professionnel de préférence" required>
-                </div>
-                <div class="input-group-pro mb-20">
-                    <input type="tel" id="lead-phone" placeholder="Téléphone - facultatif">
-                </div>
-                <button type="submit" class="modal-btn" id="submit-btn">
-                    <span id="btn-text">ENVOYER MON PLAN DÉTAILLÉ (PDF)</span>
-                    <span class="loader" id="btn-loader" style="display:none;"></span>
-                </button>
+            <h2 class="modal-title">Étude patrimoniale prête.</h2>
+            <form id="lead-form" onsubmit="submitForm(event)" class="modal-form">
+                <input type="text" id="lead-name" placeholder="Prénom & Nom" required class="input-group-pro" style="width: 100%; margin-bottom: 10px;">
+                <input type="email" id="lead-email" placeholder="Email professionnel" required class="input-group-pro" style="width: 100%; margin-bottom: 10px;">
+                <button type="submit" class="modal-btn" id="submit-btn">ENVOYER MON PLAN (PDF)</button>
             </form>
-
-            <div id="success-message" style="display: none; text-align: center; padding: 20px 0;">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <h3 style="color: var(--primary); font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 15px;">Merci <span id="success-name"></span> !</h3>
-                <p style="color: var(--text-body); line-height: 1.6; font-size: 1rem;">Votre étude personnalisée a été générée. Vérifiez vos emails d'ici quelques instants.</p>
-            </div>
-            
-            <p class="modal-note" id="modal-note">🔒 Vos données sont protégées. Aucun spam, uniquement votre étude personnalisée.</p>
+            <div id="success-message" style="display:none; text-align:center;"><h3>Merci !</h3><p>Vérifiez vos emails.</p></div>
         </div>
     </div>
 
