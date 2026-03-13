@@ -31,7 +31,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 
 /* =========================================
-   UTILITIES (Tailles fluides & couleurs d'origine)
+   UTILITIES (Fusion des espacements du 1 & couleurs du 2)
    ========================================= */
 .text-red { color: var(--accent); }
 .text-primary { color: var(--primary); }
@@ -71,36 +71,35 @@ ul { list-style: none; }
 .nav-item:hover, .nav-item.active { color: var(--accent); }
 
 /* =========================================
-   BOUTONS (Effets fluides, couleurs d'origine)
+   BOUTONS (Effets du 1, couleurs du 2)
    ========================================= */
 .btn-primary { 
     background: var(--accent); color: var(--primary); border: 1px solid var(--accent); 
     padding: 14px 32px; border-radius: var(--radius-luxe); font-weight: 700; font-family: var(--font-body);
     font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; 
 }
-.btn-primary:hover { background: var(--primary); color: var(--accent); border-color: var(--primary); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--primary); color: var(--accent); border-color: var(--primary); }
 
 .btn-secondary { 
     background: transparent; border: 1px solid var(--white); color: var(--white); 
     padding: 14px 32px; border-radius: var(--radius-luxe); font-weight: 600; font-family: var(--font-body);
     font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: background 0.4s ease, border-color 0.4s ease; 
 }
-.btn-secondary:hover { background: var(--white); color: var(--primary); transform: translateY(-2px); }
+.btn-secondary:hover { background: var(--white); color: var(--primary); }
 
 /* =========================================
-   PAGES SYSTEM (Animation fluide)
+   PAGES SYSTEM (Animation fluide du 1)
    ========================================= */
 .page { display: none; min-height: calc(100vh - 80px); animation: fadeIn 0.6s ease; }
 .page.active { display: block !important; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* =========================================
-   HERO SECTIONS (Nouvelles images Haussmanniennes CORRIGÉES)
+   HERO SECTIONS (Typo du 1, Couleurs du 2)
    ========================================= */
 .hero-section { 
     position: relative; height: 85vh; display: flex; align-items: center; padding: 0 5%; 
-    /* Utilisation de l'image locale accueil.jpg dans le dossier img */
-    background: url('img/accueil.jpg') center/cover; 
+    background: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80') center/cover; 
 }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,43,60,0.9) 0%, rgba(26,43,60,0.6) 60%, transparent 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 750px; color: var(--white); }
@@ -112,18 +111,17 @@ ul { list-style: none; }
 .hero-subtitle { font-size: 1.1rem; color: #E2E8F0; line-height: 1.8; margin-bottom: 45px; max-width: 600px; }
 .hero-buttons { display: flex; gap: 20px; }
 
-/* HERO PAUILLAC (Image close-up balcon CORRIGÉE) */
+/* HERO PAUILLAC */
 .hero-pauillac { 
     position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; 
-    /* Utilisation de l'image locale balcon.jpg dans le dossier img */
-    background: url('img/balcon.jpg') center/cover; 
+    background: url('https://images.unsplash.com/photo-1549468057-5b7fa1a41d7a?auto=format&fit=crop&w=1600&q=80') center/cover; 
 }
 .hero-overlay-dark { position: absolute; inset: 0; background: rgba(26,43,60,0.85); }
 .badge-outline { border: 1px solid var(--accent); color: var(--white); padding: 8px 20px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
 .hero-title-large { position: relative; z-index: 2; font-family: var(--font-title); font-size: 4rem; font-weight: 600; color: var(--accent); margin-bottom: 15px; }
 
 /* =========================================
-   SECTIONS & CARDS (Tailles fluides)
+   SECTIONS & CARDS (Tailles du 1, Couleurs du 2)
    ========================================= */
 .section-surtitle { font-weight: 600; font-size: 0.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); }
 .section-title { font-size: 2.8rem; font-weight: 600; margin-bottom: 20px; color: var(--primary); }
@@ -150,7 +148,7 @@ ul { list-style: none; }
 .tax-max { font-size: 0.9rem; color: var(--text-body); }
 
 /* =========================================
-   CATALOGUE DE BIENS IMMOBILIERS
+   CATALOGUE DE BIENS (CSS 2 original conservé)
    ========================================= */
 .property-card { 
     background: var(--white); border-radius: var(--radius-luxe); overflow: hidden; 
@@ -174,7 +172,7 @@ ul { list-style: none; }
 .property-price { font-family: var(--font-title); font-size: 1.4rem; color: var(--accent); font-weight: 700; }
 
 /* =========================================
-   SIMULATEUR PRO (Tailles fluides)
+   SIMULATEUR EXPERT (Tailles du 1, Couleurs du 2)
    ========================================= */
 .page-title { font-size: 3rem; font-weight: 600; margin-bottom: 15px; color: var(--primary); }
 .page-subtitle { font-size: 1.1rem; }
@@ -221,14 +219,14 @@ ul { list-style: none; }
 .gauge-fill { height: 100%; background: var(--accent); transition: width 0.5s ease; }
 
 /* =========================================
-   POP-IN MODAL (Animations fluides)
+   POP-IN MODAL (Animations du 1, compatibilité du 2)
    ========================================= */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(26, 43, 60, 0.85); backdrop-filter: blur(5px);
     z-index: 9999;
     display: flex; justify-content: center; align-items: center;
-    /* Opacité/Visibilité pour animation d'apparition douce */
+    /* Remplacement du display:none par l'opacité pour l'animation */
     opacity: 0; visibility: hidden; pointer-events: none;
     transition: all 0.3s ease;
 }
@@ -237,7 +235,6 @@ ul { list-style: none; }
 .modal-box {
     background: var(--bg-ivoire); border: 1px solid var(--accent); border-radius: var(--radius-luxe);
     padding: 50px 40px; max-width: 550px; width: 90%; position: relative;
-    /* Glissement vers le haut à l'apparition */
     transform: translateY(20px); transition: all 0.3s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 .modal-overlay.active .modal-box { transform: translateY(0); }
