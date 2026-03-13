@@ -99,7 +99,7 @@ ul { list-style: none; }
    ========================================= */
 .hero-section { 
     position: relative; height: 85vh; display: flex; align-items: center; padding: 0 5%; 
-    background: url('') center/cover; 
+    background: url('accueil.jpg') center/cover; 
 }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,43,60,0.9) 0%, rgba(26,43,60,0.6) 60%, transparent 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 750px; color: var(--white); }
