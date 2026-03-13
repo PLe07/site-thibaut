@@ -99,7 +99,7 @@ ul { list-style: none; }
    ========================================= */
 .hero-section { 
     position: relative; height: 85vh; display: flex; align-items: center; padding: 0 5%; 
-    background: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80') center/cover; 
+    background: url('') center/cover; 
 }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,43,60,0.9) 0%, rgba(26,43,60,0.6) 60%, transparent 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 750px; color: var(--white); }
@@ -114,7 +114,7 @@ ul { list-style: none; }
 /* HERO PAUILLAC */
 .hero-pauillac { 
     position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; 
-    background: url('https://images.unsplash.com/photo-1549468057-5b7fa1a41d7a?auto=format&fit=crop&w=1600&q=80') center/cover; 
+    background: url('') center/cover; 
 }
 .hero-overlay-dark { position: absolute; inset: 0; background: rgba(26,43,60,0.85); }
 .badge-outline { border: 1px solid var(--accent); color: var(--white); padding: 8px 20px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
