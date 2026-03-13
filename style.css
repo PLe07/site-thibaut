@@ -114,7 +114,7 @@ ul { list-style: none; }
 /* HERO PAUILLAC */
 .hero-pauillac { 
     position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; 
-    background: url('https://github.com/PLe07/site-thibaut/blob/main/pauillac.jpg') center/cover; 
+    background: url('pauillac.jpg') center/cover; 
 }
 .hero-overlay-dark { position: absolute; inset: 0; background: rgba(26,43,60,0.85); }
 .badge-outline { border: 1px solid var(--accent); color: var(--white); padding: 8px 20px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
