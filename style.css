@@ -212,6 +212,7 @@ ul { list-style: none; }
 .cta-container { text-align: center; }
 .btn-lead { background: var(--accent); color: var(--primary); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 1px; padding: 20px 24px; width: 100%; border: 1px solid var(--accent); border-radius: var(--radius-luxe); cursor: pointer; font-weight: 700; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.15); }
 .btn-lead:hover { background: var(--primary); color: var(--accent); border-color: var(--primary); transform: translateY(-2px); }
+.modal-note { text-align: center; }
 
 /* Budget Mensualité */
 .budget-box { background: var(--bg-ivoire); border: 1px solid var(--border-fine); border-radius: var(--radius-luxe); padding: 25px; }
