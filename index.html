@@ -277,7 +277,7 @@
         </div>
     </div>
 
-  <div id="lead-modal" class="modal-overlay" onclick="closeModal(event)">
+   <div id="lead-modal" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal-box" onclick="event.stopPropagation()">
             <span class="modal-close" onclick="closeModal(event)">&times;</span>
             <h2 class="modal-title">Votre étude patrimoniale est prête.</h2>
@@ -299,6 +299,16 @@
                     <span class="loader" id="btn-loader" style="display:none;"></span>
                 </button>
             </form>
+
+            <div id="success-message" style="display: none; text-align: center; padding: 20px 0;">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <h3 style="color: var(--primary); font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 15px;">Merci <span id="success-name"></span> !</h3>
+                <p style="color: var(--text-body); line-height: 1.6; font-size: 1rem;">Votre étude personnalisée a été générée. Vérifiez vos emails d'ici quelques instants.</p>
+            </div>
+            
+            <p class="modal-note" id="modal-note">🔒 Vos données sont protégées. Aucun spam, uniquement votre étude personnalisée.</p>
+        </div>
+    </div>
 <div id="call-modal" class="modal-overlay" onclick="closeCallModal(event)">
         <div class="modal-box" onclick="event.stopPropagation()" style="text-align: center; max-width: 400px;">
             <span class="modal-close" onclick="closeCallModal(event)">&times;</span>
