@@ -253,7 +253,7 @@ async function submitForm(event) {
     btn.disabled = true;
     btn.innerText = "ENVOI EN COURS...";
 
-    try {
+   try {
         const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -263,6 +263,16 @@ async function submitForm(event) {
         if (response.ok) {
             form.style.display = 'none';
             successMsg.style.display = 'block';
+
+            // --- TÉLÉCHARGEMENT IMMÉDIAT DU PDF ---
+            const link = document.createElement('a');
+            link.href = 'brochure.pdf'; // Mets bien ton fichier "brochure.pdf" dans le dossier du site !
+            link.download = 'Etude-TransacExpress.pdf'; // Nom du fichier sur l'ordi du client
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            // --------------------------------------
+
         } else {
             alert("Erreur lors de l'envoi. Veuillez réessayer.");
             btn.disabled = false;
@@ -271,6 +281,7 @@ async function submitForm(event) {
     } catch (error) {
         console.error("Erreur Webhook :", error);
         btn.disabled = false;
+        btn.innerText = "ENVOYER MON PLAN (PDF)";
     }
 }
 
