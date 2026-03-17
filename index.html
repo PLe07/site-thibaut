@@ -279,11 +279,12 @@
 
     <div id="lead-modal" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal-box" onclick="event.stopPropagation()">
-            <span class="modal-close" onclick="closeModal(event)">&times;</span>
+            <span class="modal-close" onclick="closeModal(event)">×</span>
             <h2 class="modal-title">Étude patrimoniale prête.</h2>
             <form id="lead-form" onsubmit="submitForm(event)" class="modal-form">
                 <input type="text" id="lead-name" placeholder="Prénom & Nom" required class="input-group-pro" style="width: 100%; margin-bottom: 10px;">
                 <input type="email" id="lead-email" placeholder="Email professionnel" required class="input-group-pro" style="width: 100%; margin-bottom: 10px;">
+                <input type="tel" id="lead-phone" placeholder="Téléphone (facultatif)" class="input-group-pro" style="width: 100%; margin-bottom: 10px;">
                 <button type="submit" class="modal-btn" id="submit-btn">ENVOYER MON PLAN (PDF)</button>
             </form>
             <div id="success-message" style="display:none; text-align:center;"><h3>Merci !</h3><p>Vérifiez vos emails.</p></div>
